@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"os"
 
 	"github.com/adrianriobo/dater/pkg/schemas"

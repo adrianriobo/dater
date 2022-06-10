@@ -1,1 +1,3 @@
 out/
+pkg/schemas/*/**/*.go
+pkg/schemas/*/**/generated
