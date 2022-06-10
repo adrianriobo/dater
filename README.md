@@ -22,7 +22,7 @@ This tools will provide some features for manipulate, analyze and digest xunit f
 
 The solution relies on schemas to define the data it will handle, currently implemeting generate structs based on xsd schemas and json schemas (json or yaml representation).
 
-The generators are embedded and can be checked at ![xsd-generator](pkg/schemas/gen-xsd.go) and ![json-generator](pkg/schemas/gen-json.go)  
+The generators are embedded and can be checked at [xsd-generator](pkg/schemas/gen-xsd.go) and [json-generator](pkg/schemas/gen-json.go)  
 
 These generators can be used on generate annotation:
 
