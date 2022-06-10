@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 
 	"github.com/adrianriobo/dater/pkg/util/file"
+	"github.com/adrianriobo/dater/pkg/util/logging"
 
 	xunitSchema "github.com/adrianriobo/dater/pkg/schemas/xunit"
 )
@@ -27,6 +28,7 @@ func GlobalStatus(xunitContent []byte) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	logging.Debugf("Analyzed xunit file got %s failures", xunitContentAsStruct.FailuresAttr)
 	if xunitContentAsStruct.FailuresAttr == "0" {
 		return statusSuccess, nil
 	}
