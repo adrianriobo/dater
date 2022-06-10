@@ -1,5 +1,7 @@
 package schemas
 
-// func TestGenerateFromXSD(t *testing.T) {
-// 	GenerateFromXSD("xunit", "xunit.xsd", "xunit", "xunit")
-// }
+import "testing"
+
+func TestGenerateFromXSD(t *testing.T) {
+	StructFromXSD("xunit", "xunit", "xunit")
+}
