@@ -2,7 +2,6 @@ package schemas
 
 import (
 	"fmt"
-	"io"
 	"os"
 
 	"github.com/a-h/generate"
@@ -52,12 +51,11 @@ func GenerateFromJSONSchema(inputFileName, outputFileName, packageName string) e
 	if err != nil {
 		return err
 	}
-	var w io.Writer = os.Stdout
-	w, err = os.Create(outputFileName)
+	writer, err := os.Create(outputFileName)
 	if err != nil {
 		return err
 	}
-	generate.Output(w, g, packageName)
+	generate.Output(writer, g, packageName)
 	return nil
 }
 
