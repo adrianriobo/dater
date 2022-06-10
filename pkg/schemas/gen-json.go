@@ -10,11 +10,11 @@ import (
 	"github.com/adrianriobo/dater/pkg/schemas"
 )
 
-// os.Args[1] input filename
-// os.Args[2] outout filename
+// os.Args[1] sourcePath
+// os.Args[2] targetPath
 // os.Args[3] package name
 func main() {
-	if err := schemas.GenerateFromJSONSchema(os.Args[1], os.Args[2], os.Args[3]); err != nil {
+	if err := schemas.StructFromJSONSchema(os.Args[1], os.Args[2], os.Args[3]); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
