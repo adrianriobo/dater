@@ -75,10 +75,6 @@ github.com/subosito/gotenv
 # github.com/xuri/xgen v0.0.0-20220527070817-98e2a901798b
 ## explicit; go 1.15
 github.com/xuri/xgen
-# golang.org/x/exp v0.0.0-20220608143224-64259d1afd70
-## explicit; go 1.18
-golang.org/x/exp/constraints
-golang.org/x/exp/slices
 # golang.org/x/net v0.0.0-20220607020251-c690dde0001d
 ## explicit; go 1.17
 golang.org/x/net/html
@@ -118,3 +114,6 @@ gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0
 ## explicit
 gopkg.in/yaml.v3
+# sigs.k8s.io/yaml v1.3.0
+## explicit; go 1.12
+sigs.k8s.io/yaml

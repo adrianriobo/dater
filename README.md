@@ -32,6 +32,8 @@ package schemas
 //go:generate go run gen-xsd.go xunit xunit.xsd xunit xunit
 ```
 
+All go files at any subfolder on pkg schema are self generated (so not pushed to scm) based on schemas
+
 ### Xunit
 
 There is no official xsd for xunit, we are using the on defined by xunit-plugin from jenkins-ci, accessible on [github](https://github.com/jenkinsci/xunit-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/xunit/types/model/xsd/junit-10.xsd)

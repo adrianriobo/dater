@@ -1,0 +1,30 @@
+$id: http://redhat.com/fedora-ci/product-build.build.complete
+$schema: http://json-schema.org/draft-07/schema#
+title: product-build.build.complete
+
+description:
+    Building of the product has been completed.
+    This is a mandatory message.
+
+properties:
+    contact:
+        $ref: contact.json
+    run:
+        $ref: run.json
+    artifact:
+        $ref: product-build.json
+    build:
+        $ref: build.json
+    generated_at:
+        $ref: common.json#/properties/generated_at
+    version:
+        $ref: common.json#/properties/version
+
+required:
+    - contact
+    - run
+    - artifact
+    - generated_at
+    - version
+
+type: object
