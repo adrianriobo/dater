@@ -1,0 +1,158 @@
+$id: file:///home/ariobolo/01WORKSPACE/04SOURCE/github/dater/pkg/schemas/fedora-ci/generated/product-build.json
+$schema: http://json-schema.org/draft-07/schema#
+title: productBuild
+
+description:
+    Details about the product being tested.
+
+properties:
+    type:
+        description:
+            Product type, in this case 'product-build'.
+        enum:
+            - product-build
+        type: string
+
+    id:
+        description:
+          ID of the product meaning the sha256 digest of the sorted ids of the `artifacts` list.
+
+          An immutable constructed id is used to ensure results can be tracked to their subject.
+        examples:
+            - ocp-3.10-20180531.2
+        type: string
+        pattern: "sha256:[A-Fa-f0-9]{64}"
+
+    nvr:
+        description:
+          name-version-release of the product
+
+        examples:
+            - ocp-3.10-20180531.2
+        type: string
+
+    name:
+        description:
+          name of the product
+
+        examples:
+            - RHEL
+        type: string
+
+    version:
+        description:
+          ver of the product
+
+        examples:
+            - 3.10
+        type: string
+
+    release:
+        description:
+          release of the product
+
+        examples:
+            - 20180531.2
+        type: string
+
+    phase:
+        description:
+          product phase
+
+        examples:
+            - planning
+            - development
+            - testing
+            - launch
+            - maintenance
+
+        type: string
+
+    build:
+        description:
+          product build
+
+        examples:
+            - PreGA
+            - Beta1
+            - Beta100
+            - RC1
+            - RC100
+            - GA
+
+        type: string
+
+    state:
+        description:
+          product ready state
+
+        examples:
+            - interop ready
+            - nightly
+            - testing
+            - updates
+            - released
+
+        type: string
+
+    repos:
+        description:
+          Repoositories where product build artifacts can be obtained.
+
+        examples:
+            - ["https://gitlab.cee.redhat.com/common/beta/ocp.git","https://gitlab.cee.redhat.com/beta/ocp.git"]
+
+        type: array
+        items:
+          type: string
+
+    artifacts:
+        description:
+            List of child artifacts, from which this product consists. It is required, but can be an empty list.
+
+        examples:
+            - [
+                {
+                    "type": "redhat-container-image",
+                    "id": "835016",
+                    "component": "cvp-unknownproduct",
+                    "issuer": "someone",
+                    "nvr": "openstack-redis-base-container-15.0-2",
+                    "full_name": "example.com:8888/rhosp15/openstack-redis-base:rhos-15.0-rhel-8-containers-candidate-97924-20190124202049",
+                    "registry_url": "example.com:8888",
+                    "namespace": "rhosp15",
+                    "name": "openstack-redis-base",
+                    "image_tag": "rhos-15.0-rhel-8-containers-candidate-97924-20190124202049",
+                    "scratch": false
+                },
+                {
+                    "type": "brew-build",
+                    "id": 14546276,
+                    "issuer": "plautrba",
+                    "component": "libselinux",
+                    "nvr": "libselinux-2.8-6.el7.x86_64",
+                    "scratch": false,
+                    "source": "git+https://src.fedoraproject.org/rpms/libselinux.git?#5e0ae23a"
+                }
+              ]
+
+        type: array
+        items:
+            anyOf:
+                - $ref: uncontrolled-build.json
+                - $ref: product-build.json
+                - $ref: rpm-build.json
+                - $ref: rpm-build-group.json
+                - $ref: redhat-container-image.json
+                - $ref: container-image.json
+                - $ref: component-version.json
+
+required:
+    - type
+    - id
+    - name
+    - version
+    - release
+    - artifacts
+
+type: object
