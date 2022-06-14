@@ -1,0 +1,15 @@
+$id: file:///home/ariobolo/01WORKSPACE/04SOURCE/github/dater/pkg/schemas/fedora-ci/generated/build.json
+$schema: http://json-schema.org/draft-07/schema#
+title: build
+
+description:
+    Details about the build.
+
+properties:
+    repository:
+        description:
+            Repository with build artifacts.
+        type: string
+
+required:
+    - repository

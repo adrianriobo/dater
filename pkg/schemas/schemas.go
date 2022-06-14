@@ -14,7 +14,7 @@ import (
 	"sigs.k8s.io/yaml"
 )
 
-// //go:generate go run gen-json.go fedora-ci fedora-ci fedoraci
+//go:generate go run gen-json.go fedora-ci fedora-ci fedoraci
 //go:generate go run gen-xsd.go xunit xunit xunit
 
 func StructFromXSD(sourceFolder, outputFolder, packageName string) error {

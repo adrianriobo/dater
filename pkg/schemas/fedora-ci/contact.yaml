@@ -1,5 +1,5 @@
 # $id: contact
-$id: http://redhat.com/fedora-ci/contact
+$id: file:///home/ariobolo/01WORKSPACE/04SOURCE/github/dater/pkg/schemas/fedora-ci/generated/contact.json
 $schema: http://json-schema.org/draft-07/schema#
 title: contact
 
