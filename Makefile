@@ -12,7 +12,6 @@ LDFLAGS := $(VERSION_VARIABLES) -extldflags='-static' ${GO_EXTRA_LDFLAGS}
 GCFLAGS := all=-N -l
 
 # Schemas
-SCHEMAS_FOLDER ?= schemas
 SCHEMAS_PKG ?= pkg/schemas
 
 # Add default target
@@ -51,6 +50,9 @@ test:
 clean:
 	rm -rf $(BUILD_DIR)
 	rm -f $(GOPATH)/bin/dater
+# Remove generated go structs from schemas
+	find $(SCHEMAS_PKG)/*/ -type f -name "*.go" -delete 
+	find $(SCHEMAS_PKG) -type d -name "generated" -exec rm -rf {} +
 
 .PHONY: fmt
 fmt:
@@ -67,7 +69,7 @@ lint: $(GOPATH)/bin/golangci-lint
 # Build the container image
 .PHONY: container-build
 container-build: test
-	${CONTAINER_MANAGER} build -t ${IMG} -f images/builder/Dockerfile .
+	${CONTAINER_MANAGER} build -t ${IMG} -f images/Dockerfile .
 
 # Push the docker image
 .PHONY: container-push
